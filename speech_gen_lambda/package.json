@@ -1,0 +1,9 @@
+{
+  "name": "lambda-speechgen",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}
