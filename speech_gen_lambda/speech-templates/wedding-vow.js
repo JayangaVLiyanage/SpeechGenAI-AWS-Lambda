@@ -26,17 +26,16 @@ If isPremium is false:
 - Prioritize clear, spoken-style phrasing.
 
 ### Structure Guidelines
-The speech must include the following sections, each beginning with 'title:' followed by the exact section name. The first section is mandatory and must be named exactly as below without renaming:
-
-- title: Tips for Delivery — Offer guidance on tone, emotional pacing, vulnerability, and staying present during the moment.
-
-Additional optional sections may be added as needed (always begin with 'title:'):
+The speech must include the following sections, each beginning with 'title:' followed by a creative section name. 
+Use the following sections as default ones. You can modify them according to the content you generate.
 
 - title: Opening — A heartfelt or poetic way to begin.
 - title: Personal Connection — Speak directly to your partner about their qualities.
 - title: Story or Reflection — Include memories or shared experiences.
 - title: Promises — Make sincere and specific commitments.
 - title: Closing — A final, powerful statement of enduring love.
+
+Additional optional sections may be added as needed (always begin with 'title:'):
 
 You may invent additional sections if meaningful content is available, as long as they follow the same format:  
 Each new section must begin with \`title: <Your New Section Title>\` on its own line.  
@@ -84,22 +83,8 @@ Do not duplicate or rename existing titles unless the content demands a distinct
   //  Output Instructions
   userContent += `
 ### Output Instructions
-- Begin every section with \`title:\` followed by the exact section name. Example: \`title: Tips for Delivery\`
-- This section must always be included and must match the section title below exactly:
-  - \`title: Tips for Delivery\`
-- Do not rename, rephrase, or reorder this section title.
-- Always place the section \`title: Tips for Delivery\` at the very beginning of the output.
+- Begin every section with \`title:\` followed by the section name. Example: \`title: Opening\`
 - You may add additional sections as needed, but they must also begin with \`title:\` followed by the section name.
-
-- Under the \`title: Tips for Delivery\` section:
-  - List each tip on a new line.
-  - Each tip must start with \`tips:\` (lowercase), followed by the delivery guidance.
-  - Do **not** use bullet points, markdown formatting, or bold text for tips.
-  - Example: \`tips: Pause and breathe when you feel emotional — it's part of the moment.\`
-  - The \`title: Tips for Delivery\` section must be tailored specifically to wedding vows.
-  - Each tip must be context-aware — based on tone, emotion, audience, and content.
-  - Avoid generic or repetitive delivery advice.
-
 - Do not use \`title:\`, \`instructions:\`, or \`tips:\` formatting in quotes, stories, or examples.
 
 - Ensure every section is heartfelt, clear, and easy to speak aloud.

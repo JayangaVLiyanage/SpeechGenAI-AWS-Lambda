@@ -30,9 +30,7 @@ If isPremium is false:
 - Keep it respectful, clear, and easy to deliver.
 
 ### Structure Guidelines
-The speech must include the following sections, each beginning with 'title:' followed by the exact section name. The first section is mandatory and must be named exactly as below without renaming:
-- title: Tips for Delivery — Offer suggestions for pacing, tone, and presence. Help the speaker stay emotionally connected, natural, and expressive throughout the speech.
-
+The speech must include the following sections, each beginning with 'title:' followed by a creative section name.
 Additional optional sections to include as needed (also prefixed with 'title:'):
 
 - title: Opening — Warm greeting or thoughtful reflection.
@@ -88,20 +86,8 @@ Keep titles relevant, creative, and aligned with the tone of the speech. Do not 
 
   userContent += `
 ### Output Instructions
-- Begin every section with \`title:\` followed by the exact section name. Example: \`title: Tips for Delivery\`
-- This section must always be included and must match the section title below exactly. Do not rename, rephrase, this two section title:
-  - \`title: Tips for Delivery\`
-- Always place the section \`title: Tips for Delivery\` at the very beginning of the output.
+- Begin every section with \`title:\` followed by a creative section name. Example: \`title: Opening\`
 - You may add additional sections as needed, but they must also begin with \`title:\` followed by the section name.
-- Under the \`title: Tips for Delivery\` section:
-  - List each tip on a new line.
-  - Each tip must start with \`tips:\` (lowercase), followed by the delivery guidance.
-  - Do **not** use bullet points, markdown formatting, or bold text for tips.
-  - Example: \`tips: Take a pause before delivering a personal anecdote.\`
-  - The \`title: Tips for Delivery\` section must be tailored specifically to the speech type.
-  - Each tip must be context-aware — based on the purpose, tone, audience, and speech content.
-  - Focus on what makes delivery effective for this specific scenario, not speeches in general.
-  - Do not use generic or repetitive tips.
 - Do not use \`title:\` or \`tips:\` formatting in quotes, stories, or examples.
 
 - Make each section warm, memorable, and easy to deliver aloud.

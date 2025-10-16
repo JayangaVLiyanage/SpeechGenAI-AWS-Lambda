@@ -5,6 +5,7 @@ import { buildSalesPitchPrompt } from './sales-pitch.js';
 import { buildGraduationSpeechPrompt } from './graduation-speech.js';
 import { buildRetirementSpeechPrompt } from './retirement-speech.js';
 import { buildAcceptanceSpeechPrompt } from './acceptance-speech.js';
+import { buildColdCallOpeningPrompt } from './cold-call-speech.js';
 
 
 // Supported speech types
@@ -16,6 +17,7 @@ export const SPEECH_TYPES = Object.freeze({
   graduation_speech: "graduation_speech",
   retirement_speech: "retirement_speech",
   acceptance_speech: "acceptance_speech",
+  coldcall_speech: "coldcall_speech",
   // add more types as needed
 });
 
@@ -36,6 +38,7 @@ const promptBuilders = {
   [SPEECH_TYPES.graduation_speech]:buildGraduationSpeechPrompt,
   [SPEECH_TYPES.retirement_speech]: buildRetirementSpeechPrompt,
   [SPEECH_TYPES.acceptance_speech]:buildAcceptanceSpeechPrompt,
+  [SPEECH_TYPES.coldcall_speech]:buildColdCallOpeningPrompt,
 };
 
 export function getPromptBuilder(type) {

@@ -69,7 +69,7 @@ const generateSpeech = async (jobid, userId, data, packageStatus, packageType, t
       user: userId
     };
 
-    const gptParamsGpt4_1 = {
+    const gptParamsGpt4_1_mini = {
       model: "gpt-4.1-mini",
       messages: promptMessages,
       temperature: 0.7, // Creativity control
@@ -79,27 +79,39 @@ const generateSpeech = async (jobid, userId, data, packageStatus, packageType, t
       max_tokens: 7000, // Limit output size
       user: userId
     };
-    const gptParamsGpt5 = {
-      model: "gpt-5-mini",
+
+    const gptParamsGpt4_1 = {
+      model: "gpt-4.1",
       messages: promptMessages,
-      max_completion_tokens: 7000, // Limit output size
+      temperature: 0.7, // Creativity control
+      top_p: 0.9, // Nucleus sampling
+      presence_penalty: 0.6, // Encourage new topics
+      frequency_penalty: 0.5, // Reduce repetition
+      max_tokens: 7000, // Limit output size
       user: userId
     };
+
+    // const gptParamsGpt5 = {
+    //   model: "gpt-5-mini",
+    //   messages: promptMessages,
+    //   max_completion_tokens: 7000, // Limit output size
+    //   user: userId
+    // };
 
     // Free users
     let gptParams = gptParamsGpt4_1;
 
     // If paid users
-    if (packageStatus && packageStatus === PACKAGE_STATUS.ACTIVE 
+    if (packageStatus && packageStatus === PACKAGE_STATUS.ACTIVE
       && packageType && packageType !== PRODUCT_TYPE.Free) {
 
       switch (throttleLevel.key) {
         case Throttle_Level.Premium.key:
-          gptParams = gptParamsGpt5;
+          gptParams = gptParamsGpt4_1;
           break;
 
         case Throttle_Level.Standered.key:
-          gptParams = gptParamsGpt4_1;
+          gptParams = gptParamsGpt4_1_mini;
           break;
 
         case Throttle_Level.Economy.key:
@@ -291,6 +303,25 @@ export const handler = async (event) => {
               return responseData(401, { details: " Issue when getting package validity period" });
             }
 
+
+
+            const freeUserSpeechCount = freePkg.speechCount;
+
+            /** 
+              * Read user already registered before
+              * If registered no free speeches allowed
+              */
+            const resultUserRegisteredBefore = await readFromDynamo(TABLE_NAME, PK, null, {
+              beginsWith: "PROFILE#DELETE_REQ#"
+            });
+
+            if (resultUserRegisteredBefore && resultUserRegisteredBefore.success && resultUserRegisteredBefore.data
+              && resultUserRegisteredBefore.data.length > 0) {
+
+              // If found user registered before User have used the free speeches so set it to zero
+              freeUserSpeechCount = 0;
+            }
+
             const dataSavedTime = new Date().toISOString(); // This acts as the part of the sort key for each entry
 
             const newUserProfileProps = {
@@ -298,7 +329,7 @@ export const handler = async (event) => {
               userId: authInfo.sub,
               authProvider: authInfo.authProvider,
               name: authInfo.name,
-              speechCount: freePkg.speechCount, // If speech generated recude the free speech count
+              speechCount: freeUserSpeechCount,
               packageType: freePkg.key,
               packageId: String(freePkg.packageId),
               packageStatus: PACKAGE_STATUS.ACTIVE,
@@ -421,7 +452,7 @@ export const handler = async (event) => {
           textToSave = speechTextResult.data;
         }
       }
-      else{
+      else {
         speechGenStatus = "MaxSpeechLimit";
       }
 

@@ -28,11 +28,7 @@ If isPremium is false:
 - Use universal sales principles if details are limited.
 
 ### Structure Guidelines
-The speech must include the following sections, each beginning with 'title:' followed by the exact section name. The first section is mandatory and must be named exactly as below without renaming:
-
-- title: Tips for Delivery — Offer guidance on speaking with clarity, authority, and impact. Include tips on tone, strategic pacing, emphasis, and ending with a strong, actionable takeaway.
-
-Additional optional sections to include as needed (also prefixed with 'title:'):
+The speech must include the following sections, each beginning with 'title:' followed by a creative section name.
 
 - title: Hook/Opening  — Start with a bold statement, question, or fact to capture attention.
 - title: Identify the Problem — Highlight the customer’s pain point or need.
@@ -41,6 +37,7 @@ Additional optional sections to include as needed (also prefixed with 'title:'):
 - title: Handle Objections — If objections are given, address them naturally.
 - title: Call-to-Action — End with a clear step (buy, schedule, partner, sign up).
 
+Additional optional sections to include as needed (also prefixed with 'title:'):
 You may invent additional sections if meaningful content is available, as long as they follow the same format:  
 Each new section must begin with \`title: <Your New Section Title>\` on its own line.  
 Keep titles relevant, creative, and aligned with the tone of the speech. Do not repeat or rename the existing titles unless the content truly requires a distinct section.
@@ -89,21 +86,8 @@ Keep titles relevant, creative, and aligned with the tone of the speech. Do not 
 
   userContent += `
 ### Output Instructions
-- Begin every section with \`title:\` followed by the exact section name. Example: \`title: Tips for Delivery\`
-- This section must always be included and must match the section title below exactly:
-  - \`title: Tips for Delivery\`
-- Do not rename, rephrase, or reorder this section title.
-- Always place the section \`title: Tips for Delivery\` at the very beginning of the output.
+- Begin every section with \`title:\` followed by a creative section name. Example: \`title: Hook/Opening\`
 - You may add additional sections as needed, but they must also begin with \`title:\` followed by the section name.
-- Under the \`title: Tips for Delivery\` section:
-  - List each tip on a new line.
-  - Each tip must start with \`tips:\` (lowercase), followed by a space and the delivery guidance.
-  - Do **not** use bullet points, markdown formatting, or bold text for tips.
-  - Example: \`tips: Speak slowly and pause between sections.\`
-  - The \`title: Tips for Delivery\` section must be tailored specifically to the speech type.
-  - Each tip must be context-aware — based on the purpose, tone, audience, and speech content.
-  - Focus on what makes delivery effective for this specific scenario, not speeches in general.
-  - Do not use generic or repetitive tips.
 - Do not use \`title:\` or \`tips:\` formatting in quotes, stories, or examples.
 
 - Make each section clear, persuasive, and easy to deliver aloud.
